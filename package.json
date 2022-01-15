@@ -1,6 +1,6 @@
 {
-  "name": "youtube-dl-exec",
-  "description": "A simple Node.js wrapper for youtube-dl",
+  "name": "yt-dlp-exec-fork",
+  "description": "this is just a fork from youtube-dl-exec so it will use yt-dlp instead of youtube-dl",
   "homepage": "https://nicedoc.io/microlinkhq/youtube-dl-exec",
   "version": "2.0.2",
   "main": "src/index.js",
