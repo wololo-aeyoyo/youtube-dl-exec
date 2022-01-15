@@ -18,10 +18,14 @@ const {
   YOUTUBE_DL_SKIP_DOWNLOAD
 } = require('../src/constants')
 
+
+
 const getBinary = async url => {
+
   const response = await fetch(url)
   const contentType = response.headers.get('content-type')
 
+  
   if (BINARY_CONTENT_TYPES.includes(contentType)) {
     return response.buffer()
   }
@@ -31,11 +35,13 @@ const getBinary = async url => {
     ({ name }) => name === YOUTUBE_DL_FILE
   )
 
+
+  
   return fetch(downloadUrl).then(res => res.buffer())
 }
 
 if (!YOUTUBE_DL_SKIP_DOWNLOAD) {
   Promise.all([getBinary(YOUTUBE_DL_HOST), mkdirp(YOUTUBE_DL_DIR)])
     .then(([buffer]) => fs.writeFile(YOUTUBE_DL_PATH, buffer, { mode: 493 }))
-    .catch(err => console.error(err.message || err))
+    .catch(err => console.error( err))
 }
